@@ -3,7 +3,7 @@
     $visitor_number = $_POST['number'];
     $address = $_POST['message'];
 
-    $email_from = 'OrderPlaced_GZP@Doctor_Phoneservice.com';
+    $email_from = 'OrderPlaced_GZP@doctor_phoneservice.com';
     $email_subject = "$name Order Placed";
     $email_body = "Full Name: $name.\n".
                     "Mobile Number: $visitor_number.\n".
@@ -12,6 +12,7 @@
     $to = "warior.mohammadsahil@gmail.com";
 
     $headers = "From: $email_from \r\n";
+    $headers .= "Reply-To: $visitor_number \r\n";
 
     mail($to,$email_subject,$email_body,$headers);
 
