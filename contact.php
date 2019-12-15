@@ -1,6 +1,7 @@
 <?php
     $name = $_POST['name'];
     $visitor_number = $_POST['number'];
+    $visitor_email = 'contactbrokenbarriers@gmail.com';
     $address = $_POST['message'];
 
     $email_from = 'OrderPlaced_GZP@doctor_phoneservice.com';
