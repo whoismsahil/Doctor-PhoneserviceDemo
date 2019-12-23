@@ -1,23 +1,20 @@
 <?php
-    $name = $_POST['name'];
-    $visitor_number = $_POST['number'];
-    $visitor_email = 'contactbrokenbarriers@gmail.com';
-    $address = $_POST['message'];
+	if(isset($_POST['submit'])){
+		$name=$_POST['name'];
+		$email='doctorphoneservicegzp@gmail.com';
+		$phone=$_POST['number'];
+		$msg=$_POST['message'];
 
-    $email_from = 'OrderPlaced_GZP@doctor_phoneservice.com';
-    $email_subject = "New Order Placed";
-    $email_body = "Full Name: $name.\n".
-                    "Mobile Number: $visitor_number.\n".
-                        "Address: $address.\n";
+		$to='warior.mohammadsahil@gmail.com'; // Receiver Email ID, Replace with your email ID
+		$subject='Form Submission';
+		$message="Name :".$name."\n"."Number :".$phone."\n"."Address :"."\n\n".$msg;
+		$headers="From: ".$email;
 
-    $to = "warior.mohammadsahil@gmail.com";
-
-    $headers = "From: $email_from \r\n";
-    $headers .= "Reply-To: $visitor_email \r\n";
-
-    mail($to,$email_subject,$email_body,$headers);
-
-    header("Location: index.html");
-
-    
+		if(mail($to, $subject, $message, $headers)){
+			echo "<h1>Sent Successfully! Thank you"." ".$name.", We will contact you shortly!</h1>";
+		}
+		else{
+			echo "Something went wrong!";
+		}
+	}
 ?>
